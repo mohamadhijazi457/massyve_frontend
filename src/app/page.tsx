@@ -1,23 +1,8 @@
-// // app/page.tsx
 "use client";
-// import LoginPage from "./login/page";
-// import Dashboard from "./dashboard/page";
-// import { useAuth } from "@/app/context/page";
-
-// export default function Home() {
-//   const { user, loading } = useAuth();
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return user ? <Dashboard /> : <LoginPage />;
-// }
-// app/page.tsx
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import "@/app/globals.css"; // adjust the path as needed
+import "@/app/globals.css";
 
 
 export default function Home() {
@@ -25,9 +10,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // Simulate checking if the user is authenticated (e.g., using a global state or context)
     // This could be a check to see if the user has a valid auth token or similar.
-    const user = localStorage.getItem("user"); // Or use your own method of checking auth
+    const user = localStorage.getItem("user");
     if (user) {
       setIsAuthenticated(true);
     }
@@ -44,9 +28,11 @@ export default function Home() {
   }, [isAuthenticated, router]);
 
   return (
-    <div>
-      <h1>Welcome to the Home Page!</h1>
-      <p>Please wait while we check your authentication status...</p>
+    <div className="flex items-center justify-center h-screen">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4 text-blue-600">Massyve</h1>
+        <p className="text-lg text-gray-600">Please wait a few seconds!</p>
+      </div>
     </div>
   );
 }

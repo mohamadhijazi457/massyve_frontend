@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { useAuth } from "@/app/context/page"; // Adjust if the path differs
+import { useAuth } from "@/app/context/page";
 import client from "@/app/bin/client";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
-import { TypeAnimation } from "react-type-animation"; // Importing TypeAnimation component
+import { TypeAnimation } from "react-type-animation";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -19,16 +19,17 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const res = await client.post("/login", { username, password });
+      const res = await client.post("/auth/login", { username, password });
       const token = res.data.token;
       if (token) {
         login(token);
       } else {
-        setError("Invalid response from server.");
+        setError("Something went wrong on our end.");
       }
     } catch (err: any) {
-      setError(err?.response?.data?.message || "Login failed. Please try again.");
-    }
+  console.error("Login error:", err);
+  setError(err?.response?.data?.message || "Login failed. Please try again.");
+}
 };
 return(
   <>

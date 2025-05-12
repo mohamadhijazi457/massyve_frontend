@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
 
       try {
-        const res = await client.get("/me"); // token is added by interceptor
+        const res = await client.get("/auth/me"); // token is added by interceptor
         setUser(res.data);
       } catch (err) {
         console.error("Session validation failed", err);
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (token: string) => {
     localStorage.setItem("token", token);
     try {
-      const res = await client.get("/me");
+      const res = await client.get("/auth/me");
       setUser(res.data);
       router.push("/dashboard");
     } catch (err) {
