@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthProvider } from "@/app/context/page";
+import { AuthProvider } from "@/app/context/auth-context";
 import { ReactNode } from "react";
 import "@/app/globals.css"; 
 

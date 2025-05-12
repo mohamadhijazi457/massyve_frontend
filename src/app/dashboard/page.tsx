@@ -1,5 +1,5 @@
 "use client";
-import { useAuth } from "@/app/context/page";
+import { useAuth } from "@/app/context/auth-context";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { ClipLoader } from "react-spinners";

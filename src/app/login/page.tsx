@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useAuth } from "@/app/context/page";
+import { useAuth } from "@/app/context/auth-context";
 import client from "@/app/bin/client";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
